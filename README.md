@@ -1,0 +1,2 @@
+# NAI-codingame
+codingame: solutions
