@@ -9,15 +9,38 @@ import datetime
 begin = input()
 end = input()
 
-##dt = datetime.datetime.strptime(begin, '%d.%m.%Y')
-##print '{0}/{1}/{2:02}'.format(dt.month, dt.day, dt.year % 100)
 
 start = datetime.datetime.strptime(begin, '%d.%m.%Y')
 stop = datetime.datetime.strptime(end, '%d.%m.%Y')
 
 output = stop - start
+days = output.days
+months = stop.month - start.month
+#months_total = stop.month - start.month + 12*(stop.year - start.year)
+years = stop.year - start.year
 
-print(output.days)
+if years < 1:
+    if months == 0:
+        print("total", days, "days")
+    elif months == 1:
+        print(months, "month, total", days, "days")
+    elif months > 1:
+        print(months, "months, total", days, "days")
+elif years == 1:
+    if months == 0:
+        print(years, "year, total", days, "days")
+    elif months == 1:
+        print(years, "year,", months, "month, total", days, "days")
+    elif months > 1:
+        print(years, "year,", months, "months, total", days, "days")    
+else:
+    if months == 0:
+        print(years, "years, total", days, "days")
+    elif months == 1:
+        print(years, "years,", months, "month, total", days, "days")
+    elif months > 1:
+        print(years, "years,", months, "months, total", days, "days")
+    
 
 # Write an answer using print
 # To debug: print("Debug messages...", file=sys.stderr, flush=True)
