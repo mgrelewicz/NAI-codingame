@@ -1,4 +1,4 @@
-# Marcin Grelewicz (s17692) - NAI / PJATK
+# Marcin Grelewicz (s17692) - NAI 
 import sys
 import math
 
