@@ -1,3 +1,4 @@
+# Marcin Grelewicz (s17692) NAI 
 import sys
 import math
 
@@ -12,32 +13,30 @@ import math
 # initial_ty: Thor's starting Y position
 light_x, light_y, initial_tx, initial_ty = [int(i) for i in input().split()]
 
+current_tx = initial_tx
+current_ty = initial_ty
+
 # game loop
-while True:
-    remaining_turns = int(input())  # The remaining amount of turns Thor can move. Do not remove this line.
-    if light_x > initial_tx AND light_y > initial_ty:
-        initial_tx += initial_tx
-        initial_ty += initial_ty
-        print("SE")
-        remaining_turns += remaining_turns
-        
-    elif light_x > initial_tx AND light_y < initial_ty:
-        initial_tx += initial_tx
-        initial_ty -= initial_ty
-        print("NE")
-        remaining_turns += remaining_turns
-
-    elif light_x < initial_tx AND light_y > initial_ty: 
-        initial_tx -= initial_tx
-        initial_ty += initial_ty
-        print("SW")
-        remaining_turns += remaining_turns
-
-    elif light_x = initial_tx AND light_y > initial_ty
-    else: 
-        print("NW")
-        remaining_turns += remaining_turns
-
+while 1:
+    remaining_turns = int(input())
+    move_x = ""
+    move_y = ""
+    
+    if light_x < current_tx:
+        current_tx -= 1
+        move_x = "W"
+    elif light_x > current_tx:
+        current_tx += 1
+        move_y = "E"
+   
+   if light_y < current_ty:
+        current_ty -= 1
+        move_y = "N"
+    elif light_y > current_ty:
+        current_ty += 1
+        move_y = "S"
+    
+    print(move_y + move_x)
 
     # Write an action using print
     # To debug: print("Debug messages...", file=sys.stderr, flush=True)
